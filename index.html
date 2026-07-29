@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="AI Utility Hub - 20 AI-powered tools in one dashboard. Resume reviewer, email generator, travel planner and more.">
+    content="AI Utility Hub - AI-powered tools in one dashboard. Resume reviewer, email generator, travel planner and more.">
   <title>AI Utility Hub</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,7 +18,6 @@
         <div class="logo-icon">⚡</div>
         AI Utility Hub
       </div>
-      <span class="header-badge">20 AI Tools</span>
     </div>
   </header>
 
@@ -49,13 +48,80 @@
       <div class="error-msg" id="errorMsg"></div>
       <div class="result-card" id="resultCard">
         <div class="result-header">
-          <h3>Result</h3>
-          <button class="copy-btn" onclick="copyResult()">📋 Copy</button>
+          <h3 id="resultTitle">Result</h3>
+          <div class="result-actions">
+            <button class="copy-btn" onclick="copyResult()">📋 Copy</button>
+            <button class="feedback-trigger-btn" onclick="showFeedback()">💬 Feedback</button>
+          </div>
         </div>
         <div class="result-content" id="resultContent"></div>
       </div>
     </div>
 
+  </div>
+
+  <!-- Feedback Modal Overlay -->
+  <div id="feedbackOverlay" class="feedback-overlay" style="display:none">
+    <div class="feedback-modal">
+      <div class="feedback-modal-header">
+        <div class="feedback-icon">💬</div>
+        <h2>Share Your Feedback</h2>
+        <p>Help us improve your AI experience</p>
+      </div>
+
+      <form id="feedbackForm" onsubmit="submitFeedback(event)">
+
+        <div class="feedback-field">
+          <label for="feedbackEmail">Gmail Address <span class="required">*</span></label>
+          <input
+            type="email"
+            id="feedbackEmail"
+            placeholder="yourname@gmail.com"
+            autocomplete="email"
+          >
+          <span class="field-error" id="emailError"></span>
+        </div>
+
+        <div class="feedback-field">
+          <label>Rating <span class="required">*</span></label>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+          </div>
+          <span class="star-label" id="starLabel">Select a rating</span>
+          <span class="field-error" id="starError"></span>
+        </div>
+
+        <div class="feedback-field">
+          <label for="feedbackComment">Your Comments <span class="required">*</span></label>
+          <textarea
+            id="feedbackComment"
+            placeholder="Share your thoughts (minimum 10 words, maximum 1000 words)..."
+            rows="5"
+          ></textarea>
+          <div class="word-count-row">
+            <span class="field-error" id="commentError"></span>
+            <span class="word-count" id="wordCount">0 / 1000 words</span>
+          </div>
+        </div>
+
+        <div class="feedback-actions">
+          <button type="button" class="feedback-later-btn" onclick="dismissFeedback()">Later</button>
+          <button type="submit" class="feedback-submit-btn">Submit Feedback</button>
+        </div>
+
+      </form>
+
+      <div class="feedback-success" id="feedbackSuccess" style="display:none">
+        <div class="success-icon">🎉</div>
+        <h3>Thank you!</h3>
+        <p>Your feedback means a lot to us and helps us make AI Utility Hub even better.</p>
+        <button class="feedback-submit-btn" onclick="closeFeedbackSuccess()">Close</button>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
