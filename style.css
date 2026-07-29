@@ -343,10 +343,32 @@ body {
   display: block;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 24px 16px; }
+  .page-title { font-size: 24px; }
+  .form-card { padding: 22px; }
+  .result-card { padding: 22px; }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
   .cards-grid { grid-template-columns: 1fr; }
-  .page-title { font-size: 22px; }
+  .page-title { font-size: 20px; }
+  .page-subtitle { font-size: 13px; margin-bottom: 20px; }
   .header-inner { flex-direction: column; gap: 8px; }
-  .form-card { padding: 20px; }
+  .logo { font-size: 18px; }
+  .container { padding: 16px 12px; }
+  .form-card { padding: 16px; }
+  .result-card { padding: 16px; }
+  .tool-header h2 { font-size: 18px; }
+  .tool-header-icon { width: 42px; height: 42px; font-size: 20px; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+  .generate-btn { padding: 14px; font-size: 16px; }
 }
