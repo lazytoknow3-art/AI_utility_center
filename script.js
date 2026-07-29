@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:3000"; // Change to your deployed backend URL
+const API_BASE = "https://ai-utility-center.onrender.com"; // Change to your deployed backend URL
 
 const TOOLS = [
   {
