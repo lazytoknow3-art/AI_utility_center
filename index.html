@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="AI Utility Hub - 20 AI-powered tools in one dashboard. Resume reviewer, email generator, travel planner and more.">
+  <title>AI Utility Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo" onclick="showHome()">
+        <div class="logo-icon">⚡</div>
+        AI Utility Hub
+      </div>
+      <span class="header-badge">20 AI Tools</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Home View -->
+    <div id="homeView">
+      <h1 class="page-title">Your AI Toolkit</h1>
+      <p class="page-subtitle">Select a tool below to get started</p>
+      <div class="cards-grid" id="cardsGrid"></div>
+    </div>
+
+    <!-- Tool View -->
+    <div id="toolView" class="tool-view">
+      <button class="back-btn" onclick="showHome()">← Back to Tools</button>
+      <div class="tool-header">
+        <div class="tool-header-icon" id="toolIcon"></div>
+        <h2 id="toolTitle"></h2>
+      </div>
+      <div class="form-card">
+        <form id="toolForm"></form>
+        <button class="generate-btn" id="generateBtn" onclick="generate()">✨ Generate</button>
+      </div>
+      <div class="loading" id="loading" style="display:none">
+        <div class="spinner"></div>
+        Generating response...
+      </div>
+      <div class="error-msg" id="errorMsg"></div>
+      <div class="result-card" id="resultCard">
+        <div class="result-header">
+          <h3>Result</h3>
+          <button class="copy-btn" onclick="copyResult()">📋 Copy</button>
+        </div>
+        <div class="result-content" id="resultContent"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
